@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentCompose"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/etCompose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textHintTweet"
+        android:inputType="textMultiLine"
+        android:maxEms="140"
+        android:minEms="140" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCompose"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <TextView
+            android:id="@+id/tvRemainingChars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/textNum"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/btnTweet"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textTweet" />
+        
+    </LinearLayout>
+
+</RelativeLayout>

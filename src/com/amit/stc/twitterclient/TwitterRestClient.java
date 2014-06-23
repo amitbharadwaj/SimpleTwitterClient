@@ -33,11 +33,35 @@ public class TwitterRestClient extends OAuthBaseClient {
         REST_CALLBACK_URL);
   }
 
-  public void getHomeTimeline(AsyncHttpResponseHandler handler) {
+  public enum TweetOrder {
+    NEWER,
+    OLDER,
+    NO_ORDER,
+  }
+
+  public void getHomeTimeline(TweetOrder tweetOrder, long tweetId,
+      AsyncHttpResponseHandler handler) {
     String apiUrl = getApiUrl("statuses/home_timeline.json");
     RequestParams params = new RequestParams();
-    params.put("since_id", "1");
+    switch (tweetOrder) {
+      case NEWER:
+        params.put("since_id", Long.toString(tweetId));
+        break;
+      case OLDER:
+        params.put("max_id", Long.toString(tweetId - 1));
+        break;
+      default:
+        params.put("since_id", "1");
+        break;
+    }
     client.get(apiUrl, params, handler);
+  }
+
+  public void postTweet(String tweetText, AsyncHttpResponseHandler handler) {
+    String apiUrl = getApiUrl("statuses/update.json");
+    RequestParams params = new RequestParams();
+    params.put("status", tweetText);
+    client.post(apiUrl, params, handler);
   }
 
   //

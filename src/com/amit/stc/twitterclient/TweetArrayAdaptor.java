@@ -19,7 +19,9 @@ public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
 
   static class ViewHolder {
     ImageView ivProfileImage;
+    TextView tvUserName;
     TextView tvScreenName;
+    TextView tvRelativeTime;
     TextView tvTweet;
   }
 
@@ -47,7 +49,9 @@ public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
 
       viewHolder = new ViewHolder();
       viewHolder.ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
+      viewHolder.tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
       viewHolder.tvScreenName = (TextView) convertView.findViewById(R.id.tvSceenName);
+      viewHolder.tvRelativeTime = (TextView) convertView.findViewById(R.id.tvRelativeTime);
       viewHolder.tvTweet = (TextView) convertView.findViewById(R.id.tvTweet);
       convertView.setTag(viewHolder);
     } else {
@@ -60,7 +64,9 @@ public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
       Toast.makeText(context, "No Internet", Toast.LENGTH_LONG).show();
     }
 
+    viewHolder.tvUserName.setText(tweet.getUser().getName());
     viewHolder.tvScreenName.setText(tweet.getUser().getScreenName());
+    viewHolder.tvRelativeTime.setText(TextHelper.getRelativeTimeAgo(tweet.getCreatedAt()));
     viewHolder.tvTweet.setText(tweet.getBody());
 
     return convertView;
