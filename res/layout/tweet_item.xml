@@ -10,7 +10,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
+        android:paddingRight="5dp"
+        android:contentDescription="@string/textProfileImage" />
 
         <TextView
         android:id="@+id/tvUserName"
