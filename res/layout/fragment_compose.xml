@@ -12,7 +12,10 @@
         android:hint="@string/textHintTweet"
         android:inputType="textMultiLine"
         android:maxEms="140"
-        android:minEms="140" />
+        android:minEms="140"
+        android:textColor="#333333"
+        android:textSize="15sp"
+        android:gravity="top" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,38 +30,32 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="top"
             android:text="@string/textNum"
-            android:textSize="15sp"
             android:textColor="#333333"
-            android:gravity="top" />
+            android:textSize="15sp" />
 
-<!--         <Button -->
-<!--             android:id="@+id/btnTweet" -->
-<!--             android:layout_width="0dp" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_weight="1" -->
-<!--             android:background="@drawable/buttonshape" -->
-<!--             android:shadowColor="#A8A8A8" -->
-<!--             android:shadowDx="0" -->
-<!--             android:shadowDy="0" -->
-<!--             android:shadowRadius="5" -->
-<!--             android:text="@string/textTweet" -->
-<!--             android:textColor="#FFFFFF" /> -->
+        <!-- <Button -->
+        <!-- android:id="@+id/btnTweet" -->
+        <!-- android:layout_width="0dp" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_weight="1" -->
+        <!-- android:background="@drawable/buttonshape" -->
+        <!-- android:shadowColor="#A8A8A8" -->
+        <!-- android:shadowDx="0" -->
+        <!-- android:shadowDy="0" -->
+        <!-- android:shadowRadius="5" -->
+        <!-- android:text="@string/textTweet" -->
+        <!-- android:textColor="#FFFFFF" /> -->
 
         <Button
             android:id="@+id/btnTweet"
+            style="@style/ButtonText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_twitter_bg"
-            android:text="@string/textTweet"
-            style="@style/ButtonText"
-            android:textSize="15sp"
-            android:textColor="#333333"
-            android:gravity="top"
-			 />
-
-
+            android:text="@string/textTweet" />
     </LinearLayout>
 
 </RelativeLayout>
