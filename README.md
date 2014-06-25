@@ -5,8 +5,8 @@ How many hours did it take to complete?
 10 . Couldn't spend lot of this week. 
 
 Which required and optional stories have you completed?
-* User can sign in to Twitter using OAuth login
-** User can view the tweets from their home timeline
+[ * ] User can sign in to Twitter using OAuth login
+* * User can view the tweets from their home timeline
 User should be able to see the username, name, body and timestamp for each tweet
 User should be displayed the relative timestamp for a tweet "8m", "7h"
 User can view more tweets as they scroll with infinite pagination
