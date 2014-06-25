@@ -30,7 +30,7 @@ public class User {
     try {
       u.name = jsonObject.getString("name");
       u.userId = jsonObject.getLong("id");
-      u.screenName = jsonObject.getString("screen_name");
+      u.screenName = "@" + jsonObject.getString("screen_name");
       u.profileImageUrl = jsonObject.getString("profile_image_url");
     } catch (JSONException e) {
       e.printStackTrace();

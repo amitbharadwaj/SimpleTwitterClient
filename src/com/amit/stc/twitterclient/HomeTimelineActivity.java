@@ -116,8 +116,8 @@ public class HomeTimelineActivity extends FragmentActivity implements ComposeDia
   }
 
   protected void addTweetsToAdapter(JSONArray json) {
-    Toast.makeText(HomeTimelineActivity.this, "success getting json response",
-        Toast.LENGTH_LONG).show();
+    //    Toast.makeText(HomeTimelineActivity.this, "success getting json response",
+    //        Toast.LENGTH_SHORT).show();
     Log.d("debug", json.toString());
 
     for (int i = 0; i < json.length(); i++) {

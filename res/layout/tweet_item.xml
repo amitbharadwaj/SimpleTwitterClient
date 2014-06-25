@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -9,48 +10,54 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/textProfileImage"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:contentDescription="@string/textProfileImage" />
+        android:paddingRight="5dp" />
 
-        <TextView
+    <TextView
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfileImage"
-        android:text="@string/textScreenName" />
-    
-    
+        android:text="@string/textScreenName"
+        android:textColor="#111111"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvSceenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvUserName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/tvUserName"
-        android:layout_alignBottom="@id/tvUserName"
-        android:paddingLeft="10dp"
+        android:paddingLeft="2dp"
+        android:text="@string/textScreenName"
+        android:textSize="13sp"
         android:textStyle="italic"
-        android:text="@string/textScreenName" />
+        android:gravity="bottom" />
 
     <TextView
         android:id="@+id/tvTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUserName"
         android:layout_alignLeft="@+id/tvUserName"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvUserName"
         android:autoLink="all"
         android:linksClickable="true"
-        android:text="@string/textTweet" />
+        android:text="@string/textTweet"
+        android:textSize="14sp"
+        android:textColor="#444444" />
 
     <TextView
         android:id="@+id/tvRelativeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tvTweet"
         android:layout_alignBottom="@+id/tvUserName"
+        android:layout_alignRight="@+id/tvTweet"
+        android:textColor="#aaaaaa"
+        android:textSize="13sp" 
         android:text="@string/textTime" />
-
 
 </RelativeLayout>
