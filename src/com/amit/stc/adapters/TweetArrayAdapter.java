@@ -1,21 +1,31 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.adapters;
 
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amit.stc.activities.ProfileActivity;
 import com.amit.stc.models.Tweet;
+import com.amit.stc.models.User;
+import com.amit.stc.twitterclient.R;
+import com.amit.stc.utils.NetworkHelper;
+import com.amit.stc.utils.TextHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
+public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
+
+  private final OnClickListener imageClickListener;
 
   static class ViewHolder {
     ImageView ivProfileImage;
@@ -30,12 +40,25 @@ public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
 
   private final Context context;
 
-  public TweetArrayAdaptor(Context context, int layoutResource, List<Tweet> tweets) {
+  public TweetArrayAdapter(final Context context, int layoutResource, List<Tweet> tweets) {
     super(context, layoutResource, tweets);
     this.context = context;
     this.layoutResource = layoutResource;
     imageLoader = ImageLoader.getInstance();
     imageLoader.init(ImageLoaderConfiguration.createDefault(context));
+
+    imageClickListener = new OnClickListener() {
+
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(context, ProfileActivity.class);
+        User u = (User) v.getTag();
+        Bundle mBundle = new Bundle();
+        mBundle.putString("user_id", Long.toString(u.getUserId()));
+        intent.putExtras(mBundle);
+        context.startActivity(intent);
+      }
+    };
   }
 
   @Override
@@ -57,6 +80,9 @@ public class TweetArrayAdaptor extends ArrayAdapter<Tweet> {
     } else {
       viewHolder = (ViewHolder) convertView.getTag();
     }
+
+    viewHolder.ivProfileImage.setTag(tweet.getUser());
+    viewHolder.ivProfileImage.setOnClickListener(imageClickListener);
 
     if (NetworkHelper.isNetworkAvailable(context)) {
       imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), viewHolder.ivProfileImage);

@@ -1,4 +1,4 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.listeners;
 
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
@@ -15,6 +15,8 @@ public abstract class EndlessScrollListener implements OnScrollListener {
   private boolean loading = true;
   // Sets the starting page index
   private int startingPageIndex = 0;
+  // Whether the user actually scrolled
+  private boolean userScrolled = false;
 
   public EndlessScrollListener() {
   }
@@ -58,7 +60,8 @@ public abstract class EndlessScrollListener implements OnScrollListener {
     // If it isn’t currently loading, we check to see if we have breached
     // the visibleThreshold and need to reload more data.
     // If we do need to reload some more data, we execute onLoadMore to fetch the data.
-    if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+    if (!loading && userScrolled
+        && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
       onLoadMore(currentPage + 1, totalItemCount);
       loading = true;
     }
@@ -69,6 +72,8 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 
   @Override
   public void onScrollStateChanged(AbsListView view, int scrollState) {
-    // Don't take any action on changed
+    if (scrollState == 1) {
+      userScrolled = true;
+    }
   }
 }

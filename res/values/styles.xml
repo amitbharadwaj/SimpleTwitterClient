@@ -17,7 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="Theme.stc" parent="@android:style/Theme.Holo">
+    <style name="Theme.stc" parent="@style/Theme.Base.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/Theme.stc.ActionBar</item>
     </style>
 

@@ -1,4 +1,4 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

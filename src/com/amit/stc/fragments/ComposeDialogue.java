@@ -1,4 +1,4 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -13,15 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.amit.stc.listeners.ComposeDialogListener;
+import com.amit.stc.twitterclient.R;
+
 public class ComposeDialogue extends DialogFragment {
 
   private EditText etCompose;
   private TextView tvRemainingChars;
   private Button btnTweet;
-
-  public interface ComposeDialogListener {
-    void onFinishEditDialog(String inputText);
-  }
 
   public ComposeDialogue() {
     // Empty constructor required for DialogFragment

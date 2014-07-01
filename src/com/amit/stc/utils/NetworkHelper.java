@@ -1,4 +1,4 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

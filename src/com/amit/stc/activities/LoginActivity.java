@@ -1,10 +1,12 @@
-package com.amit.stc.twitterclient;
+package com.amit.stc.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.amit.stc.twitterclient.R;
+import com.amit.stc.twitterclient.TwitterRestClient;
 import com.codepath.oauth.OAuthLoginActivity;
 
 public class LoginActivity extends OAuthLoginActivity<TwitterRestClient> {

@@ -7,6 +7,7 @@ import android.content.Context;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 /*
@@ -28,9 +29,16 @@ public class TwitterRestClient extends OAuthBaseClient {
       "hLGVUr6rOekf743NxCLHuIrsqSmy8H4cUpMZvLDleGz6DSceDp"; // Change this
   public static final String REST_CALLBACK_URL = "stc://timeline"; // Change this (here and in manifest)
 
+  //  private Header[] headers;
+
   public TwitterRestClient(Context context) {
     super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET,
         REST_CALLBACK_URL);
+    //    Header header1 = new BasicHeader("Content-Type", "application/x-www-form-urlencoded");
+    //    Header header2 = new BasicHeader("ssl_verifypeer", "TRUE");
+    //
+    //    headers = new Header[] { header1, header2 };
+
   }
 
   public enum TweetOrder {
@@ -55,6 +63,44 @@ public class TwitterRestClient extends OAuthBaseClient {
         break;
     }
     client.get(apiUrl, params, handler);
+    //    client.get(context, apiUrl, headers, params, handler);
+  }
+
+  public void getMentionTimeline(TweetOrder tweetOrder, long tweetId,
+      AsyncHttpResponseHandler handler) {
+    String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+    RequestParams params = new RequestParams();
+    switch (tweetOrder) {
+      case NEWER:
+        params.put("since_id", Long.toString(tweetId));
+        break;
+      case OLDER:
+        params.put("max_id", Long.toString(tweetId - 1));
+        break;
+      default:
+        params.put("since_id", "1");
+        break;
+    }
+    client.get(apiUrl, params, handler);
+  }
+
+  public void getUserTweets(TweetOrder tweetOrder, long userId, long tweetId,
+      JsonHttpResponseHandler handler) {
+    String apiUrl = getApiUrl("statuses/user_timeline.json");
+    RequestParams params = new RequestParams();
+    params.put("user_id", Long.toString(userId));
+    switch (tweetOrder) {
+      case NEWER:
+        params.put("since_id", Long.toString(tweetId));
+        break;
+      case OLDER:
+        params.put("max_id", Long.toString(tweetId - 1));
+        break;
+      default:
+        params.put("since_id", "1");
+        break;
+    }
+    client.get(apiUrl, params, handler);
   }
 
   public void postTweet(String tweetText, AsyncHttpResponseHandler handler) {
@@ -62,6 +108,18 @@ public class TwitterRestClient extends OAuthBaseClient {
     RequestParams params = new RequestParams();
     params.put("status", tweetText);
     client.post(apiUrl, params, handler);
+  }
+
+  public void getMyInfo(AsyncHttpResponseHandler handler) {
+    String apiUrl = getApiUrl("account/verify_credentials.json");
+    client.get(apiUrl, null, handler);
+  }
+
+  public void getUserInfo(String userId, JsonHttpResponseHandler handler) {
+    String apiUrl = getApiUrl("users/show.json");
+    RequestParams params = new RequestParams();
+    params.put("user_id", userId);
+    client.get(apiUrl, params, handler);
   }
 
   //

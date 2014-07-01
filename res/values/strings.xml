@@ -4,6 +4,7 @@
     <string name="app_name">Simple Twitter Client</string>
     <string name="action_settings">Settings</string>
     <string name="action_compose">Compose</string>
+    <string name="action_profile">Profile</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_photos">Flickr Photos</string>
     <string name="login_label">Sign in with Twitter</string>
@@ -15,5 +16,7 @@
     <string name="textTime">1h</string>
     <string name="textNum">140</string>
     <string name="textProfileImage">Profile Image</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="textFiller">Filler</string>
 
 </resources>
