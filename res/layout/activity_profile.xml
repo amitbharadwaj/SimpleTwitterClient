@@ -4,39 +4,49 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/title_activity_profile"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+    <RelativeLayout android:id="@+id/rlProfileInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/tvProfileName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivProfile"
-        android:text="@string/textFiller"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/title_activity_profile"
+            android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
 
-    <TextView
-        android:id="@+id/tvProfileDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvProfileName"
-        android:layout_below="@+id/tvProfileName"
-        android:text="@string/textFiller"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ivProfile"
+            android:paddingLeft="5dp"
+            android:text="@string/textFiller"
+            android:textColor="#222222"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvProfileDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvProfileName"
+            android:layout_below="@+id/tvProfileName"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:text="@string/textFiller"
+            android:textColor="#444444"
+            android:textSize="13sp" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llProfileInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ivProfile"
+        android:layout_below="@+id/rlProfileInfo"
         android:weightSum="1" >
 
         <TextView
@@ -44,24 +54,30 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:gravity="center"
             android:text="@string/textFiller"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textColor="#333333"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tvFollowing"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:gravity="center"
             android:text="@string/textFiller"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textColor="#333333"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tvFollower"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:gravity="center"
             android:text="@string/textFiller"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textColor="#333333"
+            android:textSize="13sp" />
     </LinearLayout>
 
     <FrameLayout

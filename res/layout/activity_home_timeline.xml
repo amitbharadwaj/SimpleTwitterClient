@@ -15,16 +15,16 @@
         android:id="@+id/tpIndicator"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#18FF0000"
+        android:background="#7FB8F5"
         android:padding="10dip"
-        android:textColor="#AA000000"
+        android:textColor="#333333"
         app:clipPadding="20dp"
-        app:footerColor="#FFAA2222"
+        app:footerColor="#032345"
         app:footerIndicatorHeight="3dp"
         app:footerIndicatorStyle="underline"
         app:footerLineHeight="1dp"
         app:selectedBold="true"
-        app:selectedColor="#FF000000" />
+        app:selectedColor="#FFFFFF00" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpPager"
