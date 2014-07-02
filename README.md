@@ -1,6 +1,21 @@
 ImageSearch
 ===========
 
+Assignment 4. 4th week
+
+Walkthrough:
+![walkthrough](stc2.gif)
+
+How many hours did it take to complete?
+10.  
+
+Which required and optional stories have you completed?
+All mandatory ones. Just one optional: I am showing progress bar on api calls.
+I did spend some time on styling and error checking. Tried to remove code duplication.
+
+
+
+
 How many hours did it take to complete?
 10 . Couldn't spend lot of this week. 
 
